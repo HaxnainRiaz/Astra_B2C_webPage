@@ -1,16 +1,52 @@
-const ProfileCard = () => {
+const formatDate = (value) => {
+  if (!value) return 'Not provided';
+  try {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return value;
+    return date.toLocaleDateString();
+  } catch {
+    return value;
+  }
+};
+
+const getInitials = (firstName, lastName) => {
+  const first = firstName?.charAt(0)?.toUpperCase() || '';
+  const last = lastName?.charAt(0)?.toUpperCase() || '';
+  if (first && last) return `${first}${last}`;
+  if (first) return first;
+  return '?';
+};
+
+const ProfileCard = ({ user = {} }) => {
+  const nameParts = [user.firstName, user.lastName].filter(Boolean);
+  const displayName = nameParts.length ? nameParts.join(' ') : 'Not provided';
+  const dob = formatDate(user.dob);
+  const nationality = user.countryName || 'Not provided';
+  const phone = user.phone || 'Not provided';
+  const addressParts = [user.address, user.cityName, user.countryName].filter(Boolean);
+  const fullAddress = addressParts.length ? addressParts.join(', ') : 'Not provided';
+  const profilePic = user.profile_pic;
+  const initials = getInitials(user.firstName, user.lastName);
+
   return (
     <div className="rounded-2xl w-full border border-[#76757B] p-5 flex gap-4 items-center justify-center backdrop-blur-[30px]">
       <div className="flex flex-col gap-6 ">
         <div className=" hidden md:block">
           <div className="flex gap-4 items-center">
-            <div className="">
-              <img
-                src="public/images/Group 1410089072.png"
-                alt="Profile"
-              />
+            <div className="w-[60px] h-[60px] flex-shrink-0">
+              {profilePic ? (
+                <img
+                  src={profilePic}
+                  alt="Profile"
+                  className="w-full h-full rounded-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#315BF0] to-[#8726B7] flex items-center justify-center text-white font-semibold text-xl">
+                  {initials}
+                </div>
+              )}
             </div>
-            <h2 className="text-white font-semibold text-lg">John Doe</h2>
+            <h2 className="text-white font-semibold text-lg">{displayName}</h2>
           </div>
         </div>
 
@@ -20,7 +56,7 @@ const ProfileCard = () => {
             <span className="text-white min-w-[130px] md:min-w-[0px]">
               Name:
             </span>
-            <span className="font-semibold text-white">John Doe</span>
+            <span className="font-semibold text-white">{displayName}</span>
           </div>
 
           {/* Date of Birth row */}
@@ -34,7 +70,7 @@ const ProfileCard = () => {
               </div>
               <span className="text-white block md:hidden">Date of Birth (DOB):</span>
             </div>
-            <span className="font-semibold text-white">01/01/1990</span>
+            <span className="font-semibold text-white">{dob}</span>
           </div>
 
           {/* Nationality row */}
@@ -49,7 +85,7 @@ const ProfileCard = () => {
               </div>
               <span className="text-white block md:hidden">Nationality:</span>
             </div>
-            <span className="font-semibold text-white">United States</span>
+            <span className="font-semibold text-white">{nationality}</span>
           </div>
 
           {/* Phone number row */}
@@ -62,7 +98,7 @@ const ProfileCard = () => {
               </div>
               <span className="text-white block md:hidden">Phone No:</span>
             </div>
-            <span className="font-semibold text-white">+1 (555) 23456</span>
+            <span className="font-semibold text-white">{phone}</span>
           </div>
 
           {/* Address row */}
@@ -77,7 +113,7 @@ const ProfileCard = () => {
               <span className="text-white block md:hidden">Address:</span>
             </div>
             <span className="font-semibold text-white">
-              742 Evergreen Terrace, Springfield, USA
+              {fullAddress}
             </span>
           </div>
         </div>

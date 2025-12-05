@@ -1,7 +1,14 @@
-const WalletInfoCard = () => {
+const maskAddress = (address) => {
+  if (!address) return 'Not provided';
+  if (address.length <= 10) return address;
+  return `${address.slice(0, 6)}••••••${address.slice(-4)}`;
+};
 
-  const key = "1Fak3Wal1e7Addre55D";
-const maskedKey = key.slice(0, 4) + "••••••••••" + key.slice(-4);
+const WalletInfoCard = ({ walletAddress, wallets = [] }) => {
+  const primaryWallet = wallets.length > 0 ? wallets[0] : null;
+  const displayAddress = walletAddress || primaryWallet?.address;
+  const walletName = primaryWallet?.name || primaryWallet?.type;
+  const maskedKey = maskAddress(displayAddress);
 
   return (
     <div className="w-full rounded-2xl border border-[#76757B] justify-center items-center p-6 pb-[60px] text-sm flex flex-col h-auto text-white backdrop-blur-[30px]">
@@ -17,8 +24,18 @@ const maskedKey = key.slice(0, 4) + "••••••••••" + key.slice
       </div>
 
       <div className="space-y-3 text-sm">
-        <div className="flex flex-wrap  gap-2 sm:gap-8 items-start sm:items-center justify-center">
-          <span className="text-white min-w-[130px] sm:min-w-[160px]">
+        {/* {walletName && (
+          <div className="flex flex-wrap gap-2 sm:gap-8 items-start sm:items-center justify-center">
+            <span className="text-white min-w-[130px] sm:min-w-[160px]">
+              Wallet Type:
+            </span>
+            <span className="font-semibold text-white capitalize">
+              {walletName}
+            </span>
+          </div>
+        )} */}
+        <div className="flex  gap-2 sm:gap-8 items-start sm:items-center justify-center">
+          <span className="text-white ">
             Wallet Address:
           </span>
           <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-full border border-white/10 text-sm max-w-full min-w-0">
