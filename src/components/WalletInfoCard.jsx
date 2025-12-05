@@ -4,24 +4,24 @@ const WalletInfoCard = () => {
 const maskedKey = key.slice(0, 4) + "••••••••••" + key.slice(-4);
 
   return (
-    <div className="w-full rounded-2xl border border-[#76757B] justify-center items-center p-6 pb-[60px] text-sm flex flex-col h-auto text-white backdrop-blur-[30px]">
-      <div className="flex items-center gap-3 mb-5">
-        <div className="p-3 rounded-xl bg-[#315BF047] flex items-center justify-center text-white text-xl">
+    <div className="w-full rounded-2xl border border-[#76757B] md:justify-start justify-start md:items-start items-center p-6 md:pb-[60px] text-sm flex flex-col h-auto text-white backdrop-blur-[30px]">
+      <div className="flex items-center justify-start gap-3 mb-5">
+        <div className="p-3 rounded-xl bg-[#315BF047] flex items-center hidden md:block justify-center text-white text-xl">
           <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.0664 0.500977C14.0884 0.49748 14.1125 0.501903 14.1348 0.516602C14.1442 0.523705 14.1535 0.533425 14.1611 0.545898C14.1692 0.559114 14.1749 0.575528 14.1777 0.592773L14.7568 4.16309L14.8252 4.58301H16.6133C16.7891 4.58312 16.9616 4.65586 17.0918 4.79102C17.2226 4.92689 17.2998 5.11466 17.2998 5.31445V7.27734H14.2393C13.7859 7.27744 13.3547 7.46444 13.04 7.79102C12.726 8.11697 12.5528 8.55556 12.5527 9.00879V12.7041C12.5528 13.1573 12.726 13.5959 13.04 13.9219C13.3547 14.2485 13.7859 14.4354 14.2393 14.4355H17.2998V16.3984C17.2998 16.5982 17.2226 16.786 17.0918 16.9219C16.9616 17.057 16.7891 17.1298 16.6133 17.1299H1.18652C1.01058 17.1299 0.838304 17.0571 0.708008 16.9219C0.577109 16.786 0.5 16.5983 0.5 16.3984V5.31445C0.5 5.11459 0.577108 4.9269 0.708008 4.79102C0.838304 4.65579 1.01058 4.58304 1.18652 4.58301H2.60938L2.49512 3.98926L2.2832 2.87793L2.28223 2.87598C2.27893 2.85897 2.27899 2.84124 2.28223 2.82422C2.28553 2.80706 2.29241 2.79117 2.30078 2.77832C2.30909 2.76565 2.31911 2.7558 2.3291 2.74902C2.33892 2.74241 2.34889 2.73819 2.3584 2.73633H2.35938L14.0664 0.500977ZM18.3926 9.50879C18.4111 9.50879 18.4331 9.51652 18.4521 9.53613C18.4718 9.55654 18.4863 9.58842 18.4863 9.625V12.0879C18.4863 12.1245 18.4718 12.1564 18.4521 12.1768C18.4331 12.1964 18.4111 12.2041 18.3926 12.2041H14.7393V9.50879H18.3926ZM16.0195 9.74023C15.7235 9.74024 15.4437 9.86308 15.2402 10.0742C15.0374 10.2848 14.9258 10.5664 14.9258 10.8564C14.9258 11.1465 15.0374 11.4281 15.2402 11.6387C15.4437 11.8498 15.7235 11.9726 16.0195 11.9727C16.3156 11.9727 16.5954 11.8498 16.7988 11.6387C17.0017 11.4281 17.1133 11.1465 17.1133 10.8564C17.1133 10.5664 17.0017 10.2848 16.7988 10.0742C16.5954 9.8631 16.3156 9.74023 16.0195 9.74023ZM13.5078 0.841797L2.97852 2.85254L2.4873 2.94629L2.58105 3.4375L2.72266 4.17676L2.7998 4.58301H14.6348L14.541 4.00293L14.0947 1.25293L14.0127 0.745117L13.5078 0.841797Z" stroke="#315BF0" />
           </svg>
         </div>
         <div>
-          <p className="text-white font-semibold text-lg">Wallet Information</p>
+          <p className="text-white flex justify-start font-semibold text-lg">Wallet Information</p>
         </div>
       </div>
 
       <div className="space-y-3 text-sm">
-        <div className="flex flex-wrap  gap-2 sm:gap-8 items-start sm:items-center justify-center">
-          <span className="text-white min-w-[130px] sm:min-w-[160px]">
+        <div className="flex  gap-2 sm:gap-2 lg:gap-6 sm:justify-start items-center">
+          <span className="text-white">
             Wallet Address:
           </span>
-          <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-full border border-white/10 text-sm max-w-full min-w-0">
+          <div className="inline-flex items-center gap-2 bg-none md:bg-white/10 text-white px-4 py-2 rounded-full border-none md:border border-white/10 text-sm max-w-full min-w-0">
             <span className="text-base">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.8889 0H6.22222C4.51111 0 3.11111 1.4 3.11111 3.11111C1.4 3.11111 0 4.51111 0 6.22222V10.8889C0 12.6 1.4 14 3.11111 14H7.77778C9.48889 14 10.8889 12.6 10.8889 10.8889C12.6 10.8889 14 9.48889 14 7.77778V3.11111C14 1.4 12.6 0 10.8889 0ZM9.33333 10.8889C9.33333 11.7444 8.63333 12.4444 7.77778 12.4444H3.11111C2.25556 12.4444 1.55556 11.7444 1.55556 10.8889V6.22222C1.55556 5.36667 2.25556 4.66667 3.11111 4.66667H7.77778C8.63333 4.66667 9.33333 5.36667 9.33333 6.22222V10.8889ZM12.4444 7.77778C12.4444 8.63333 11.7444 9.33333 10.8889 9.33333V6.22222C10.8889 4.51111 9.48889 3.11111 7.77778 3.11111H4.66667C4.66667 2.25556 5.36667 1.55556 6.22222 1.55556H10.8889C11.7444 1.55556 12.4444 2.25556 12.4444 3.11111V7.77778Z" fill="#E0E0E0" />

@@ -53,7 +53,7 @@ const DocumentCard = () => {
               key={doc.type}
               className="min-w-full p-6 flex flex-col-reverse  gap-6 md:flex-row md:items-start md:gap-2"
             >
-              <div className="flex-1 text-sm flex flex-col items-center md:items-start text-white">
+              <div className="flex-1 text-sm flex flex-col items-center justify-center md:items-start text-white">
                 {/* Desktop & tablet header: keep inside text block, hide on mobile */}
                 <div className="hidden md:flex items-center gap-3 mb-4">
                   <h2 className="text-white font-semibold text-lg">
